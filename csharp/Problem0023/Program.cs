@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Problem0023
 {
@@ -19,7 +20,52 @@ namespace Problem0023
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            List<int> abundlst = new List<int>();
+
+            for (int i = 2; i<=28123; i++)
+            {
+                if (i < Abundant(i))
+                {
+                    abundlst.Add(i);
+                }
+            }
+
+            long s = 28123 * (1 + 28123) / 2;
+
+            List<int> sumabund = new List<int>();
+            for (int i = 0; i < abundlst.Count; i++)
+            {
+                for (int j = i; j < abundlst.Count && abundlst[j]<= 28123 - abundlst[i]; j++)
+                {
+                    int sum = abundlst[i] + abundlst[j];
+                    if (!sumabund.Contains(sum) && sum <= 28123)
+                    {
+                        s -= sum;
+                        sumabund.Add(sum);
+                    }
+                }
+            }
+
+            Console.WriteLine(s);
+        }
+
+        static int Abundant(int val)
+        {
+            int s = 1;
+            for (int j = (int)Math.Sqrt(val); j>1; j--)
+            {
+                if (val % j == 0)
+                {
+                    s += j;
+
+                    if (j * j != val)
+                    {
+                        s += val / j;
+                    }
+                }
+            }
+
+            return s;
         }
     }
 }
