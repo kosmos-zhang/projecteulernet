@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Problem0026
 {
@@ -20,7 +21,45 @@ namespace Problem0026
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int maxd = 2;
+            int maxrc = 0;
+            for (int i =2; i < 1000; i++)
+            {
+                int rc = GetRecurringCycle(i);
+                Console.WriteLine(string.Format("{0}({1})", i, rc));
+                if (maxrc < rc)
+                {
+                    maxrc = rc;
+                    maxd = i;
+                }
+            }
+
+            Console.WriteLine(maxd);
+        }
+
+        static int GetRecurringCycle(int d)
+        {
+            int lft = 0;
+            int a = 10;
+            List<int> rcs = new List<int>();
+
+            do
+            {
+                lft = a % d;
+
+                if (rcs.Contains(lft))
+                {
+                    return rcs.Count - rcs.IndexOf(lft);
+                }
+                else
+                {
+                    rcs.Add(lft);
+                    a = lft * 10;
+                }
+            }
+            while (lft > 0);
+
+            return 0;
         }
     }
 }
