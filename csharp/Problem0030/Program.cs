@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Problem0030
 {
@@ -16,9 +17,36 @@ namespace Problem0030
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            List<long> lst = new List<long>();
+            for (long l = 10; ; l++)
+            {
+                char[] cst = l.ToString().ToCharArray();
 
+                double d = 0;
+                foreach(char c in cst)
+                {
+                    d += Math.Pow(Convert.ToDouble(c.ToString()), 5);
+                }
 
-            Console.WriteLine("Hello World!");
+                if (l == d)
+                {
+                    lst.Add(l);
+                    Console.WriteLine(l);
+                }
+
+                if (l > cst.Length * 590490)
+                {
+                    break;
+                }
+            }
+
+            long r = 0;
+            foreach(long l in lst)
+            {
+                r += l;
+            }
+
+            Console.WriteLine(r);
         }
     }
 }
