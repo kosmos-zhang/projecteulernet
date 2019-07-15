@@ -5,3 +5,4 @@
 /csharp/.vs/projecteulernet
 /csharp/Problem*/obj
 /csharp/Problem*/bin
+*.suo
