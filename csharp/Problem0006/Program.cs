@@ -27,6 +27,8 @@ namespace Problem0006
             }
 
             Console.WriteLine(m * m - n);
+
+            //25164150
         }
     }
 }

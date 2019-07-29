@@ -38,6 +38,8 @@ namespace projecteulernet
             }
 
             Console.Write("result is :" + result);
+
+            // 233168
         }
     }
 }

@@ -39,6 +39,7 @@ namespace Problem2
             }
 
             Console.Write(result);
+            // 4613732
         }
     }
 }

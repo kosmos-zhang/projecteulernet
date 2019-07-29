@@ -19,6 +19,8 @@ namespace Problem4
                     Console.Write(i + ",");
                 }
             }
+
+            // 906609
         }
 
         static bool Has3Factor(int val)
@@ -28,6 +30,7 @@ namespace Problem4
                 int j = val / i;
                 if (val % i == 0 && j > 100 && j <1000 && i < 1000)
                 {
+                    Console.Write(i + "*" + j + ";");
                     return true;
                 }
             }

@@ -12,6 +12,8 @@ namespace Problem0005
         {
             Console.WriteLine((long)10*9*4*7);
             Console.WriteLine((long)19*17*13*11*7*5*9*8*2);
+
+            // 232792560
         }
     }
 }
